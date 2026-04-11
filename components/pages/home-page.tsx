@@ -156,9 +156,6 @@ export function HomePage({
 
             <div className="space-y-10 lg:pt-1">
               <div className="max-w-6xl space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-[1.8rem]">
-                  Biography
-                </h2>
                 {bioParagraphs.map((paragraph, index) => (
                   <p key={index} className="text-base leading-8 text-slate-700">
                     {paragraph}
