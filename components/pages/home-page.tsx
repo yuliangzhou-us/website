@@ -53,16 +53,8 @@ function GlobeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function DegreeIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path d="M3 8l9-4 9 4-9 4-9-4z" />
-      <path d="M6 10v3.2c0 1.8 2.8 3.2 6 3.2s6-1.4 6-3.2V10" />
-    </IconBase>
-  );
-}
-
 type HomePageProps = {
+  bioParagraphs: string[];
   researchInterests: string[];
   researchProjects: ResearchProject[];
   newsItems: NewsItem[];
@@ -71,6 +63,7 @@ type HomePageProps = {
 };
 
 export function HomePage({
+  bioParagraphs,
   researchInterests,
   researchProjects,
   newsItems,
@@ -123,9 +116,9 @@ export function HomePage({
         className="scroll-mt-24 bg-[#ffffff] py-20 md:py-28 lg:min-h-[86vh] lg:py-32"
       >
         <div className="fluid-gutter mx-auto w-full max-w-7xl">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 lg:gap-14">
-            <div className="flex flex-col items-center gap-7">
-              <div className="mx-auto w-full max-w-[280px]">
+          <div className="grid gap-10 lg:grid-cols-[390px_1fr] lg:items-start lg:gap-14">
+            <div className="mx-auto w-full max-w-[560px] space-y-4 text-center sm:max-w-[620px] lg:mx-0 lg:max-w-[390px] lg:text-left">
+              <div className="mx-auto w-full max-w-[240px] sm:max-w-[280px] lg:mx-0 lg:max-w-[300px]">
                 <Image
                   src={withBasePath("/profile.jpg")}
                   alt="Yuliang Zhou profile photo"
@@ -135,73 +128,81 @@ export function HomePage({
                   priority
                 />
               </div>
-              <div className="space-y-4 text-center">
-                <h1 className="whitespace-nowrap text-[1.55rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[1.95rem] lg:text-[2.15rem]">
-                  Yuliang Zhou, Ph.D.
-                </h1>
-                <p className="text-[1.45rem] font-medium text-[#1f3a5f]">Assistant Professor</p>
-                <p className="text-[1.05rem] leading-8 text-slate-600">
-                  Department of Transportation &amp; Urban Infrastructure Studies
-                  <br />
-                  Morgan State University
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[1.02rem] text-slate-700">
-                  {profileLinks.map((item) => {
-                    const ItemIcon = item.icon;
-                    return (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        className="inline-flex items-center gap-1.5 underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                      >
-                        <ItemIcon className="h-[18px] w-[18px]" />
-                        <span>{item.label}</span>
-                      </a>
-                    );
-                  })}
-                </div>
+              <h1 className="mx-auto w-fit whitespace-nowrap text-[1.75rem] font-semibold tracking-tight text-slate-900 sm:text-[2.1rem] lg:mx-0 lg:text-[2.35rem]">
+                Yuliang Zhou, Ph.D.
+              </h1>
+              <p className="text-lg font-medium text-[#1f3a5f]">Assistant Professor</p>
+              <p className="text-base text-slate-600">
+                Department of Transportation &amp; Urban Infrastructure Studies
+                <br />
+                Morgan State University
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[15px] text-slate-700 lg:justify-start">
+                {profileLinks.map((item) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="inline-flex items-center gap-1.5 underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                    >
+                      <ItemIcon className="h-4 w-4" />
+                      <span>{item.label}</span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
-            <div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-12 lg:gap-14">
-              <div className="self-start space-y-4 md:pr-1">
-                <h2 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
-                  Research Interests
+            <div className="space-y-10 lg:pt-1">
+              <div className="max-w-6xl space-y-4">
+                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-[1.8rem]">
+                  Biography
                 </h2>
-                <ul className="space-y-2.5 text-base leading-8 text-slate-700">
+                {bioParagraphs.map((paragraph, index) => (
+                  <p key={index} className="text-base leading-8 text-slate-700">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-12 lg:gap-14">
+                <div className="self-start space-y-4 md:flex md:h-full md:flex-col md:pl-1">
+                  <h3 className="text-lg font-semibold tracking-tight text-slate-900 md:text-[1.35rem]">
+                    Education
+                  </h3>
+                  <ul className="space-y-2 text-[0.95rem] leading-7 text-slate-700">
+                    <li className="space-y-0">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                        Ph.D. in Civil Engineering
+                      </p>
+                      <p>The Pennsylvania State University, 2025</p>
+                    </li>
+                    <li className="space-y-0">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                        Ph.D. in Transportation Engineering
+                      </p>
+                      <p>Tongji University, 2021</p>
+                    </li>
+                    <li className="space-y-0">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                        B.S. in Traffic Engineering
+                      </p>
+                      <p>Tongji University, 2016</p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="self-start space-y-4 md:flex md:h-full md:flex-col md:pr-1">
+                <h3 className="text-lg font-semibold tracking-tight text-slate-900 md:text-[1.35rem]">
+                  Research Interests
+                </h3>
+                <ul className="space-y-2.5 text-[clamp(0.86rem,0.82rem+0.22vw,0.94rem)] leading-[1.32] text-slate-700">
                   {researchInterests.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
-
-              <div className="self-start space-y-4 md:pl-1">
-                <h2 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
-                  Education
-                </h2>
-                <ul className="space-y-2.5 text-base leading-8 text-slate-700">
-                  <li className="space-y-0">
-                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
-                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
-                      Ph.D. in Civil Engineering
-                    </p>
-                    <p>The Pennsylvania State University, 2025</p>
-                  </li>
-                  <li className="space-y-0">
-                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
-                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
-                      Ph.D. in Transportation Engineering
-                    </p>
-                    <p>Tongji University, 2021</p>
-                  </li>
-                  <li className="space-y-0">
-                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
-                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
-                      B.S. in Traffic Engineering
-                    </p>
-                    <p>Tongji University, 2016</p>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { HomePage } from "@/components/pages/home-page";
 import {
+  loadBiographyParagraphs,
   loadNewsItems,
   loadPublicationEntries,
   loadResearchInterests,
@@ -8,6 +9,7 @@ import {
 } from "@/content/load-editable";
 
 export default function Home() {
+  const bioParagraphs = loadBiographyParagraphs();
   const researchInterests = loadResearchInterests();
   const researchProjects = loadResearchProjects();
   const newsItems = loadNewsItems();
@@ -16,6 +18,7 @@ export default function Home() {
 
   return (
     <HomePage
+      bioParagraphs={bioParagraphs}
       researchInterests={researchInterests}
       researchProjects={researchProjects}
       newsItems={newsItems}
