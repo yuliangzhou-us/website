@@ -56,10 +56,10 @@ export function HomePage({
                 alt="Yuliang Zhou profile photo"
                 width={280}
                 height={280}
-                className="aspect-square h-auto w-full rounded-full object-cover object-center"
+                className="mx-auto aspect-square h-auto w-4/5 rounded-full object-cover object-center"
                 priority
               />
-              <h1 className="text-[1.75rem] font-semibold tracking-tight text-slate-900 sm:text-[2.1rem] lg:text-[2.35rem]">
+              <h1 className="whitespace-nowrap text-[1.75rem] font-semibold tracking-tight text-slate-900 sm:text-[2.1rem] lg:text-[2.35rem]">
                 Yuliang Zhou, Ph.D.
               </h1>
               <p className="text-lg font-medium text-[#1f3a5f]">Assistant Professor</p>

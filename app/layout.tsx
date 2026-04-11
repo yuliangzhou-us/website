@@ -10,7 +10,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Academic Website",
+  title: "Yuliang Zhou",
   description: "Research-oriented personal academic website."
 };
 

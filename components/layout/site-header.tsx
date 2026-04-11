@@ -64,7 +64,7 @@ export function SiteHeader() {
         <div className="fluid-gutter mx-auto flex w-full max-w-6xl flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4">
           <Link
             href="/"
-            className="self-start whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
+            className="self-start whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:self-auto sm:text-xl"
           >
             {siteTitle}
           </Link>
