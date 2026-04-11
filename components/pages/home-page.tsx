@@ -7,6 +7,7 @@ import type { ResearchProject } from "@/content/projects";
 import type { NewsItem } from "@/content/news";
 import type { PublicationEntry } from "@/content/publications";
 import { ImageModal } from "@/components/ui/image-modal";
+import { withBasePath } from "@/lib/with-base-path";
 
 type HomePageProps = {
   bioParagraphs: string[];
@@ -51,7 +52,7 @@ export function HomePage({
           <div className="grid gap-10 lg:grid-cols-[390px_1fr] lg:items-start lg:gap-14">
             <div className="w-full max-w-[240px] space-y-4 sm:max-w-[280px] lg:max-w-[390px]">
               <Image
-                src="/profile.jpg"
+                src={withBasePath("/profile.jpg")}
                 alt="Yuliang Zhou profile photo"
                 width={280}
                 height={280}
@@ -167,14 +168,14 @@ export function HomePage({
                       type="button"
                       onClick={() =>
                         setActiveNewsImage({
-                          src: item.image!,
+                          src: withBasePath(item.image!),
                           alt: `${item.date} news image`
                         })
                       }
                       className="block w-full cursor-pointer justify-self-end"
                     >
                       <Image
-                        src={item.image}
+                        src={withBasePath(item.image)}
                         alt={`${item.date} news thumbnail`}
                         width={320}
                         height={240}
@@ -219,14 +220,14 @@ export function HomePage({
                               type="button"
                               onClick={() =>
                                 setActiveNewsImage({
-                                  src: item.image!,
+                                  src: withBasePath(item.image!),
                                   alt: `${item.date} news image`
                                 })
                               }
                               className="block w-full cursor-pointer justify-self-end"
                             >
                               <Image
-                                src={item.image}
+                                src={withBasePath(item.image)}
                                 alt={`${item.date} news thumbnail`}
                                 width={320}
                                 height={240}
@@ -272,7 +273,7 @@ export function HomePage({
                 <div className="grid items-start gap-7 md:grid-cols-[34%_66%] md:gap-10 lg:gap-12">
                   <Link href={`/projects/${project.slug}`} className="block w-full">
                     <Image
-                      src={project.image}
+                      src={withBasePath(project.image)}
                       alt={`${project.title} preview`}
                       width={880}
                       height={495}
@@ -317,7 +318,7 @@ export function HomePage({
                         <div className="grid items-start gap-7 md:grid-cols-[34%_66%] md:gap-10 lg:gap-12">
                           <Link href={`/projects/${project.slug}`} className="block w-full">
                             <Image
-                              src={project.image}
+                      src={withBasePath(project.image)}
                               alt={`${project.title} preview`}
                               width={880}
                               height={495}
@@ -402,21 +403,21 @@ export function HomePage({
           </ul>
           <div className="mt-8 grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2">
             <Image
-              src="/images/teaching/T1.jpg"
+              src={withBasePath("/images/teaching/T1.jpg")}
               alt="Teaching activity photo 1"
               width={1600}
               height={1200}
               className="h-auto w-full rounded-md object-cover object-center"
             />
             <Image
-              src="/images/teaching/T2.jpg"
+              src={withBasePath("/images/teaching/T2.jpg")}
               alt="Teaching activity photo 2"
               width={1600}
               height={1200}
               className="h-auto w-full rounded-md object-cover object-center"
             />
             <Image
-              src="/images/teaching/T3.jpg"
+              src={withBasePath("/images/teaching/T3.jpg")}
               alt="Teaching activity photo 3"
               width={1600}
               height={1200}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDetailFigureSources } from "@/content/projects";
 import { getProjectBySlug, loadResearchProjects } from "@/content/load-editable";
+import { withBasePath } from "@/lib/with-base-path";
 
 type ProjectDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -67,7 +68,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                     {figureSources.map((src, index) => (
                       <figure key={`${src}-${index}`} className="h-[338px] w-full">
                         <Image
-                          src={src}
+                          src={withBasePath(src)}
                           alt={`${project.title} — figure ${index + 1}`}
                           width={1600}
                           height={1000}
@@ -104,7 +105,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                       }
                     >
                       <Image
-                        src={src}
+                        src={withBasePath(src)}
                         alt={`${project.title} — figure ${index + 1}`}
                         width={1600}
                         height={1000}
@@ -123,7 +124,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           ) : (
             <div className="mx-auto w-full md:w-3/4">
               <Image
-                src={project.image}
+                src={withBasePath(project.image)}
                 alt={`${project.title} media`}
                 width={1200}
                 height={675}
