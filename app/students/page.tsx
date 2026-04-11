@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
+import { withBasePath } from "@/lib/with-base-path";
 
 export const metadata: Metadata = {
   title: "Student recruitment | Yuliang Zhou",
@@ -15,6 +17,16 @@ export default function StudentsPage() {
             Back to Students
           </Link>
         </p>
+        <div className="mx-auto mt-4 mb-6 w-full max-w-[420px]">
+          <Image
+            src={withBasePath("/images/logo.jpg")}
+            alt="Morgan State University logo"
+            width={1200}
+            height={700}
+            className="h-auto w-full object-contain"
+            priority
+          />
+        </div>
 
         <header className="mt-5 space-y-2">
           <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-[2.25rem]">
