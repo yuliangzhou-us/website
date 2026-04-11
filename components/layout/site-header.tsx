@@ -15,6 +15,7 @@ function getSystemTheme(): "light" | "dark" {
 export function SiteHeader() {
   const [themeMode, setThemeMode] = useState<ThemeMode>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
@@ -52,6 +53,17 @@ export function SiteHeader() {
     setResolvedTheme(themeMode);
   }, [themeMode]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 640) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   function toggleTheme() {
     const next = resolvedTheme === "dark" ? "light" : "dark";
     setThemeMode(next);
@@ -61,19 +73,38 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#edf2f8]/95 backdrop-blur">
-        <div className="fluid-gutter mx-auto flex w-full max-w-7xl flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4">
-          <Link
-            href="/"
-            className="self-start whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:self-auto sm:text-xl"
+        <div className="fluid-gutter mx-auto w-full max-w-7xl py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-3">
+            <Link
+              href="/"
+              className="whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
+            >
+              {siteTitle}
+            </Link>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300/70 text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:hidden"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {isMenuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+          <nav
+            id="mobile-navigation"
+            aria-label="Main navigation"
+            className={`overflow-hidden transition-[max-height,opacity] duration-200 sm:mt-0 sm:overflow-visible ${
+              isMenuOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0 sm:opacity-100"
+            } sm:max-h-none`}
           >
-            {siteTitle}
-          </Link>
-          <nav aria-label="Main navigation" className="w-full overflow-x-auto sm:w-auto">
-            <ul className="grid min-w-full grid-cols-4 gap-1 sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
+            <ul className="grid grid-cols-2 gap-1 sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
                     className="block rounded-md px-2 py-1.5 text-center text-[14px] font-medium text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:px-3 sm:py-2 sm:text-base"
                   >
                     {item.label}
