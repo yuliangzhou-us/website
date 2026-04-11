@@ -41,15 +41,15 @@ body {
 
 @media (min-width: 640px) {
   .fluid-gutter {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .fluid-gutter {
-    padding-left: clamp(2rem, 5vw, 5rem);
-    padding-right: clamp(2rem, 5vw, 5rem);
+    padding-left: clamp(2.5rem, 6vw, 6rem);
+    padding-right: clamp(2.5rem, 6vw, 6rem);
   }
 }
 
