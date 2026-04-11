@@ -485,6 +485,13 @@ export function HomePage({
               height={1200}
               className="h-auto w-full rounded-md object-cover object-center"
             />
+            <Image
+              src={withBasePath("/images/teaching/T4.jpg")}
+              alt="Teaching activity photo 4"
+              width={1600}
+              height={1200}
+              className="h-auto w-full rounded-md object-cover object-center"
+            />
           </div>
         </div>
       </section>

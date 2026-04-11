@@ -29,8 +29,8 @@ export default function StudentsPage() {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">Position Description</h3>
             <p>
-              The research group at Morgan State University is recruiting Ph.D. students in Railroad
-              Transportation Engineering. The research focuses on digital twin, infrastructure sensing,
+              The research group at Morgan State University is recruiting Funded Ph.D. students in
+              Railroad Transportation Engineering. The research focuses on digital twin, infrastructure sensing,
               computer vision, and data-driven modeling for railroad and rail transit infrastructure. The
               overall goal is to develop analytical, computational, and field-informed approaches for
               infrastructure inspection, condition assessment, predictive maintenance, and performance
@@ -83,10 +83,10 @@ export default function StudentsPage() {
             <p>
               Interested students are encouraged to contact{" "}
               <a
-                href="mailto:Yuliang.Zhou@morgan.edu"
+                href="mailto:yuliang.zhou@morgan.edu"
                 className="text-[#3e6fb6] underline underline-offset-4 hover:text-[#2f5f9f]"
               >
-                Yuliang.Zhou@morgan.edu
+                yuliang.zhou@morgan.edu
               </a>{" "}
               with a brief introduction and supporting materials, such as a CV and transcripts. Students
               may also apply directly through Morgan State University.
