@@ -1,0 +1,87 @@
+2026-04
+Y
+Organized the AREMA Student Chapter Rail Seminar Series at Morgan State University, featuring guest speakers from the Federal Railroad Administration (FRA) and Plasser & Theurer.
+---
+2026-02
+N
+Launched a new PI-led project, "UAS-Based Automated Inspection Framework for Track and Overhead Contact System: A Study on Maryland Light Rail," funded by the Center for Multimodal Mobility (CMMM), a USDOT University Transportation Center.
+---
+2026-01
+N
+Presented research on continuous railroad track health monitoring using distributed fiber optic sensing at the 16th IACIP Annual Workshop.
+---
+2025-11
+Y
+Organized an AREMA Student Chapter meeting at Morgan State University, featuring an industry guest speaker from RATP Dev USA who shared insights from transit operations practice.
+---
+2025-10
+Y
+Organized a site visit to the Washington Metropolitan Area Transit Authority (WMATA) facility for Morgan State University students, providing field exposure to transit operations and control systems.
+---
+2025-08
+N
+Joined Morgan State University as an Assistant Professor in the Department of Transportation and Urban Infrastructure Studies.
+---
+2025-08
+N
+Our paper on metro tunnel structural anomaly detection using FNO and CAE networks was accepted for publication in Transportation Geotechnics.
+---
+2025-05
+N
+Earned a Ph.D. in Civil Engineering (Rail Transportation Engineering) from The Pennsylvania State University.
+---
+2025-02
+N
+Presented research on automated load rating and monitoring for railroad bridges at the AREMA Railroad Bridge Symposium.
+---
+2024-12
+N
+Presented research on railroad track condition monitoring using distributed acoustic sensing at the "Big Data" in Railroad Maintenance Planning Conference.
+---
+2024-09
+N
+Presented "Automated Bridge Inspection and Load Rating Using Low-Cost Sensor Networks" at the AREMA Annual Conference.
+---
+2024-09
+N
+Presented "When 'Smart-Tamper' Meets 'Smart-Rock'" at the AREMA Annual Conference.
+---
+2024-06
+N
+Our paper on the effect of railroad ballast fouling on ballast movement and strain change using "SmartGrid" was accepted for publication in Transportation Geotechnics.
+---
+2024-06
+N
+Presented work on improved tamping for track durability at the ASCE International Conference on Transportation and Development (ICTD).
+---
+2024-02
+N
+Our paper on measuring under-tie support condition using distributed fiber-optic strain sensors was accepted for publication in Measurement.
+---
+2024-01
+N
+Our paper on particle motion and stress response in railroad tamping strategy was accepted for publication in Transportation Geotechnics.
+---
+2024-01
+N
+Presented work on railroad subsoil monitoring using distributed acoustic sensing and existing fiber cables at the TRB 103rd Annual Meeting.
+---
+2023-12
+N
+Our paper on real-time deformation monitoring of large-diameter shield tunnels using multi-sensor data fusion was accepted for publication in Measurement.
+---
+2023-10
+N
+Presented findings on continuous track health monitoring using distributed fiber optic sensing at the AREMA Annual Conference.
+---
+2023-06
+N
+Reported Phase II results of a distributed fiber optic sensing approach for continuous railroad track health monitoring at the 28th AAR Annual Research Review.
+---
+2023-06
+N
+Presented "Smart Rock Meets Smart Tamper - Improved Tamping for Track Durability" at the 28th Annual Wheel/Rail Interaction Conference.
+---
+2022-03
+N
+Reported Phase I results of a distributed fiber optic sensing approach for continuous railroad track health monitoring at the 27th AAR Annual Research Review.

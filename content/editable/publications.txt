@@ -1,0 +1,19 @@
+﻿Li, Q., Xie, X., Zeng, K., & Zhou, Y. (2025). Metro tunnel structural anomaly detection based on vehicle-track-tunnel coupling model using FNO and CAE networks. Transportation Geotechnics, 55, 101680.
+
+Zhou, Y., Schlake, B., Hansmann, F., Huang, H.*, Antony, B., Zeng, K., & Zhang, C. (2024). Particle motion and stress response interacted with machine activity: Railroad tamping strategy. Transportation Geotechnics, 45, 101188.
+
+Zeng, K., Nazari, S., Zhou, Y., et al. (2024). Investigation into the effect of railroad ballast fouling on the ballast movements and strain change using SmartGrid. Transportation Geotechnics, 48, 101307.
+
+Zhou, Y., Huang, H.*, Shen, S., & Wang, X. (2024). Measuring under-tie support condition: An approach using distributed fiber-optic strain sensors. Measurement, 114279.
+
+Ding, N., Zhou, Y., Li, D., & Zeng, K*. (2024). Real-time deformation monitoring of large diameter shield tunnel based on multi-sensor data fusion technique. Measurement, 225, 114061.
+
+Jin, H.*, Zhou, Y., & Zhao, C. (2023). Mesoscale analysis of dry shrinkage fractures in concrete repair systems using FEM and VEM. International Journal of Pavement Engineering, 24(2), 2144310.
+
+Jin, H.*, & Zhou, Y. (2022). Study on dry shrinkage crack of invert-filling in the shield tunnel at mesoscale based on virtual element-finite element coupling method. China Civil Engineering Journal, 55(4), 109–119.
+
+Jin, H.*, & Zhou, Y. (2022). Study of three-dimensional concrete shrinkage crack behavior using a mesoscale concrete model with actual geometry and random aggregate. Scientia Sinica Technologica, 52(8), 1233–1244.
+
+Zhou, Y., Jin, H.*, & Wang, B. (2020). Drying shrinkage crack simulation and meso-scale model of concrete repair systems. Construction and Building Materials, 247, 118566.
+
+Zhou, Y., Jin, H.*, & Wang, B. (2019). Modeling and mechanical influence of meso-scale concrete considering actual aggregate shapes. Construction and Building Materials, 228, 116785.

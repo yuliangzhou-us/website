@@ -1,0 +1,1 @@
+This project builds a scalable framework for condition assessment across infrastructure networks by linking local sensor observations with corridor-level predictive models. The emphasis is on transferable metrics for maintenance decision support.

@@ -1,0 +1,34 @@
+## Ph.D. Student Recruitment in Railroad Transportation Engineering
+The research group is recruiting Ph.D. students in railroad transportation engineering. Research focuses on transportation and civil infrastructure engineering, with emphasis on track, bridges, and overhead contact systems. The work integrates field sensing, computer vision, and physics-informed data-driven modeling to support infrastructure inspection, condition assessment, predictive maintenance, and performance evaluation.
+
+## Research Directions
+- Digital twin development for railroad infrastructure, including track, bridges, and overhead contact systems
+
+- Infrastructure monitoring and assessment for track geometry, bridge response, and overhead contact system condition
+
+- Sensing and data-driven modeling for structural behavior, deterioration tracking, and maintenance decision support
+
+- Condition assessment and predictive maintenance methods for track and bridge systems under operational loading
+
+- UAS-based inspection and computer vision for defect detection and condition evaluation of track and overhead contact systems
+
+- Distributed acoustic sensing and distributed fiber-optic sensing for track condition assessment, subgrade characterization, and structural monitoring
+
+- Intelligent and resilient infrastructure systems for safer and more reliable railroad operations
+
+## Preferred Skills
+- Programming in Python, MATLAB, or related tools
+
+- Finite element modeling
+
+- Data analysis, signal processing, or machine learning
+
+- Interest in experimental testing, sensing systems, or field data interpretation
+
+## Application Materials
+- CV
+
+- Unofficial transcripts
+
+## For inquiries, please contact
+Yuliang.Zhou@morgan.edu
