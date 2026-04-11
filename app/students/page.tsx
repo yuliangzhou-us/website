@@ -47,13 +47,10 @@ export default function StudentsPage() {
           />
         </div>
 
-        <header className="mt-5 space-y-2">
+        <header className="mt-5 space-y-2 text-center">
           <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-[2.25rem]">
             Graduate recruitment
           </h1>
-          <p className="text-base text-slate-600">
-            Detailed information for prospective Ph.D. students
-          </p>
         </header>
 
         <main className="mt-10 space-y-8 text-[17px] leading-8 text-slate-700">
