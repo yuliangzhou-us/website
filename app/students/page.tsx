@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function StudentsPage() {
   return (
     <div className="bg-white py-16 md:py-20">
-      <div className="mx-auto w-full max-w-3xl px-5 sm:px-8 lg:px-10">
+      <div className="fluid-gutter mx-auto w-full max-w-3xl">
         <p className="text-sm text-slate-600">
           <Link href="/#students" className="underline underline-offset-4 hover:text-slate-900">
             Back to Students

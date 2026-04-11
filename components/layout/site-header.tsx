@@ -61,7 +61,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#edf2f8]/95 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
+        <div className="fluid-gutter mx-auto flex w-full max-w-6xl flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4">
           <Link
             href="/"
             className="self-start whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"

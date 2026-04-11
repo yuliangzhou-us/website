@@ -48,7 +48,7 @@ export function HomePage({
         id="home"
         className="scroll-mt-24 bg-[#ffffff] py-20 md:py-28 lg:min-h-[86vh] lg:py-32"
       >
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[390px_1fr] lg:items-start lg:gap-14">
             <div className="w-full max-w-[240px] space-y-4 sm:max-w-[280px] lg:max-w-[390px]">
               <Image
@@ -158,7 +158,7 @@ export function HomePage({
         id="news"
         className="scroll-mt-24 bg-[#f5f7fa] py-20 md:py-28 lg:min-h-[75vh] lg:py-32"
       >
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             News
           </h2>
@@ -270,7 +270,7 @@ export function HomePage({
         id="research"
         className="scroll-mt-24 bg-[#ffffff] py-20 md:py-28 lg:min-h-[75vh] lg:py-32"
       >
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             Research
           </h2>
@@ -362,7 +362,7 @@ export function HomePage({
         id="publications"
         className="scroll-mt-24 bg-[#f5f7fa] py-20 md:py-28 lg:min-h-[75vh] lg:py-32"
       >
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             Publication
           </h2>
@@ -390,7 +390,7 @@ export function HomePage({
         id="teaching"
         className="scroll-mt-24 bg-[#ffffff] py-20 md:py-28 lg:min-h-[73vh] lg:py-32"
       >
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             Teaching
           </h2>
@@ -435,7 +435,7 @@ export function HomePage({
       </section>
 
       <section id="students" className="scroll-mt-24 bg-[#f5f7fa] py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             Students
           </h2>
@@ -457,7 +457,7 @@ export function HomePage({
       </section>
 
       <section id="contact" className="scroll-mt-24 bg-[#ffffff] py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-[2.05rem]">
             Contact
           </h2>

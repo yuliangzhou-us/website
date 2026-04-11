@@ -33,9 +33,29 @@ body {
   @apply bg-[#ffffff] text-slate-800 antialiased;
 }
 
+/* Shared horizontal padding: fixed on mobile, fluid on desktop */
+.fluid-gutter {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .fluid-gutter {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fluid-gutter {
+    padding-left: clamp(2rem, 5vw, 5rem);
+    padding-right: clamp(2rem, 5vw, 5rem);
+  }
+}
+
 /* Refined dark mode palette (calm contrast + academic tone) */
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) {
+  html:not([data-theme]) {
     color-scheme: dark;
     --dm-page-bg: #0f1724;
     --dm-section-bg: #101c31;
@@ -64,78 +84,78 @@ html[data-theme="dark"] {
   --dm-link-hover: #a8ccff;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) body {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) body {
   background-color: var(--dm-page-bg) !important;
   color: var(--dm-text-primary) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-white,
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-\[\#ffffff\] {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-white,
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#ffffff\] {
   background-color: var(--dm-page-bg) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-\[\#f5f7fa\] {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#f5f7fa\] {
   background-color: var(--dm-section-bg) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-\[\#edf2f8\]\/95 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#edf2f8\]\/95 {
   background-color: rgb(16 28 49 / 0.93) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-\[\#1f3a5f\] {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#1f3a5f\] {
   background-color: rgb(76 119 181) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .bg-\[\#1f3a5f\]\/10 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#1f3a5f\]\/10 {
   background-color: rgb(143 184 255 / 0.2) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-slate-900 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-900 {
   color: var(--dm-text-primary) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-slate-800 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-800 {
   color: rgb(217 227 241) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-slate-700 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-700 {
   color: var(--dm-text-secondary) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-slate-600,
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-slate-500 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-600,
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-500 {
   color: var(--dm-text-muted) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-\[\#1f3a5f\] {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-\[\#1f3a5f\] {
   color: var(--dm-accent-soft) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .text-white {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-white {
   color: var(--dm-text-primary) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .border-slate-200,
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .border-slate-300\/70 {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .border-slate-200,
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .border-slate-300\/70 {
   border-color: rgb(42 58 88 / 0.72) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"])
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"])
   .divide-slate-200
   > :not([hidden])
   ~ :not([hidden]) {
   border-color: var(--dm-border) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .hover\:bg-\[\#e4ebf5\]:hover {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:bg-\[\#e4ebf5\]:hover {
   background-color: rgb(31 44 68) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .hover\:bg-\[\#172e4d\]:hover {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:bg-\[\#172e4d\]:hover {
   background-color: rgb(65 101 154) !important;
 }
 
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .hover\:text-\[\#1f3a5f\]:hover,
-:is(html:not([data-theme="light"]), html[data-theme="dark"]) .hover\:text-slate-900:hover {
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:text-\[\#1f3a5f\]:hover,
+:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:text-slate-900:hover {
   color: var(--dm-link-hover) !important;
 }

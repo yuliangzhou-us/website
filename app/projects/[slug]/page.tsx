@@ -34,7 +34,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div className="bg-white py-16 md:py-20">
-      <div className="mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10">
+      <div className="fluid-gutter mx-auto w-full max-w-5xl">
         <p className="text-sm text-slate-600">
           <Link href="/#research" className="underline underline-offset-4 hover:text-slate-900">
             Back to Research
