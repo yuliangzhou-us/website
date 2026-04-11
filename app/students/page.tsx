@@ -5,7 +5,26 @@ import { withBasePath } from "@/lib/with-base-path";
 
 export const metadata: Metadata = {
   title: "Student recruitment | Yuliang Zhou",
-  description: "Graduate student opportunities, expectations, and how to apply."
+  description: "Graduate student opportunities, expectations, and how to apply.",
+  alternates: {
+    canonical: "/website/students/"
+  },
+  openGraph: {
+    title: "Student Recruitment | Yuliang Zhou",
+    description:
+      "Funded Ph.D. opportunities in Railroad Transportation Engineering at Morgan State University.",
+    url: "https://yuliangzhou-us.github.io/website/students/",
+    siteName: "Yuliang Zhou",
+    type: "website",
+    images: [
+      {
+        url: "https://yuliangzhou-us.github.io/website/images/logo.jpg",
+        width: 1200,
+        height: 700,
+        alt: "Morgan State University logo"
+      }
+    ]
+  }
 };
 
 export default function StudentsPage() {

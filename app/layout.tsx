@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     "Condition assessment",
     "Rail transportation"
   ],
-  alternates: {
-    canonical: "/website/"
-  },
   openGraph: {
     title: "Yuliang Zhou, Ph.D. | Morgan State University",
     description:
