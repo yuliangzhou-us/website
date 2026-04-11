@@ -64,17 +64,17 @@ export function SiteHeader() {
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
+            className="self-start whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
           >
             {siteTitle}
           </Link>
           <nav aria-label="Main navigation" className="w-full overflow-x-auto sm:w-auto">
-            <ul className="flex min-w-max flex-nowrap items-center gap-1 sm:gap-2">
+            <ul className="grid min-w-full grid-cols-4 gap-1 sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-md px-3 py-2 text-[15px] text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:text-base"
+                    className="block rounded-md px-2 py-1.5 text-center text-[14px] font-medium text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:px-3 sm:py-2 sm:text-base"
                   >
                     {item.label}
                   </Link>
