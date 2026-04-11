@@ -124,8 +124,8 @@ export function HomePage({
       >
         <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 lg:gap-14">
-            <div className="grid items-center gap-8 md:grid-cols-[280px_1fr] md:gap-10 lg:gap-12">
-              <div className="mx-auto w-full max-w-[180px] md:max-w-[280px]">
+            <div className="flex flex-col items-center gap-7">
+              <div className="mx-auto w-full max-w-[280px]">
                 <Image
                   src={withBasePath("/profile.jpg")}
                   alt="Yuliang Zhou profile photo"
@@ -135,7 +135,7 @@ export function HomePage({
                   priority
                 />
               </div>
-              <div className="space-y-4 text-center md:flex md:min-h-[280px] md:flex-col md:justify-center md:text-left">
+              <div className="space-y-4 text-center">
                 <h1 className="whitespace-nowrap text-[1.55rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[1.95rem] lg:text-[2.15rem]">
                   Yuliang Zhou, Ph.D.
                 </h1>
@@ -145,7 +145,7 @@ export function HomePage({
                   <br />
                   Morgan State University
                 </p>
-                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[1.02rem] text-slate-700 md:justify-start">
+                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[1.02rem] text-slate-700">
                   {profileLinks.map((item) => {
                     const ItemIcon = item.icon;
                     return (
