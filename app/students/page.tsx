@@ -60,13 +60,8 @@ export default function StudentsPage() {
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">Position Description</h3>
             <p>
               The Department of Transportation and Urban Infrastructure Studies at Morgan State University
-              is recruiting funded Ph.D. students in Railroad Transportation Engineering. Research areas
-              include digital twin, infrastructure sensing, computer vision, and data-driven modeling for
-              railroad and rail transit systems. Students will work on applications in inspection,
-              condition assessment, performance evaluation, and predictive maintenance.
-            </p>
-            <p>
-              The research focuses on railroad infrastructure, with particular emphasis on track, bridges,
+              is recruiting funded Ph.D. students in Railroad Transportation Engineering. The research
+              focuses on rail infrastructure, with particular emphasis on track, bridges,
               and rail transit applications. Projects integrate sensing data, engineering knowledge, and
               computational methods to support safer, more reliable, and more efficient infrastructure
               management. Depending on students&apos; backgrounds and dissertation topics, work may include
