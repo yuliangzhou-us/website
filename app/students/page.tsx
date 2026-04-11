@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Student Recruitment | Yuliang Zhou",
     description:
-      "Funded Ph.D. opportunities in Railroad Transportation Engineering at Morgan State University.",
+      "Funded Ph.D. opportunities in Rail Transportation Engineering at Morgan State University.",
     url: "https://yuliangzhou-us.github.io/website/students/",
     siteName: "Yuliang Zhou",
     type: "website",
@@ -51,7 +51,7 @@ export default function StudentsPage() {
           <h1 className="text-[2rem] font-semibold tracking-tight text-slate-900 sm:text-[2.05rem]">
             Prospective Ph.D. Students
             <br />
-            in Railroad Transportation Engineering
+            in Rail Transportation Engineering
           </h1>
         </header>
 
@@ -60,7 +60,7 @@ export default function StudentsPage() {
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">Position Description</h3>
             <p>
               The Department of Transportation and Urban Infrastructure Studies at Morgan State University
-              is recruiting funded Ph.D. students in Railroad Transportation Engineering. The research
+              is recruiting funded Ph.D. students in Rail Transportation Engineering. The research
               focuses on rail infrastructure, with particular emphasis on track, bridges,
               and rail transit applications. Projects integrate sensing data, engineering knowledge, and
               computational methods to support safer, more reliable, and more efficient infrastructure
