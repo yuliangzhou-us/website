@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type SVGProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ResearchProject } from "@/content/projects";
@@ -8,6 +8,59 @@ import type { NewsItem } from "@/content/news";
 import type { PublicationEntry } from "@/content/publications";
 import { ImageModal } from "@/components/ui/image-modal";
 import { withBasePath } from "@/lib/with-base-path";
+
+function IconBase(props: SVGProps<SVGSVGElement>) {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props} />;
+}
+
+function EmailIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M4 7l8 6 8-6" />
+    </IconBase>
+  );
+}
+
+function ScholarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <path d="M3 8l9-4 9 4-9 4-9-4z" />
+      <path d="M6 10v4c0 2 2.8 3.5 6 3.5s6-1.5 6-3.5v-4" />
+    </IconBase>
+  );
+}
+
+function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M8 10v7" />
+      <path d="M8 7.5h.01" />
+      <path d="M12 17v-4.2a2.3 2.3 0 014.6 0V17" />
+    </IconBase>
+  );
+}
+
+function GlobeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.8 2.4 2.8 15.6 0 18" />
+      <path d="M12 3c-2.8 2.4-2.8 15.6 0 18" />
+    </IconBase>
+  );
+}
+
+function DegreeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <path d="M3 8l9-4 9 4-9 4-9-4z" />
+      <path d="M6 10v3.2c0 1.8 2.8 3.2 6 3.2s6-1.4 6-3.2V10" />
+    </IconBase>
+  );
+}
 
 type HomePageProps = {
   researchInterests: string[];
@@ -24,6 +77,29 @@ export function HomePage({
   publications,
   studentsHomeParagraphs
 }: HomePageProps) {
+  const profileLinks = [
+    {
+      label: "Email",
+      href: "mailto:yuliang.zhou@morgan.edu",
+      icon: EmailIcon
+    },
+    {
+      label: "Google Scholar",
+      href: "https://scholar.google.com/citations?user=pg8L1nkAAAAJ&hl=en&oi=ao",
+      icon: ScholarIcon
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/yuliang-zhou-527508289/",
+      icon: LinkedInIcon
+    },
+    {
+      label: "Morgan Profile",
+      href: "https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou",
+      icon: GlobeIcon
+    }
+  ];
+
   const hideSponsorSlugs = new Set([
     "bridge-response-analytics-under-operational-loading",
     "mechanics-informed-das-track-diagnostics"
@@ -48,8 +124,8 @@ export function HomePage({
       >
         <div className="fluid-gutter mx-auto w-full max-w-7xl">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 lg:gap-14">
-            <div className="grid items-center gap-8 md:grid-cols-[220px_1fr] md:gap-10 lg:gap-12">
-              <div className="mx-auto w-full max-w-[180px] md:max-w-[220px]">
+            <div className="grid items-center gap-8 md:grid-cols-[280px_1fr] md:gap-10 lg:gap-12">
+              <div className="mx-auto w-full max-w-[180px] md:max-w-[280px]">
                 <Image
                   src={withBasePath("/profile.jpg")}
                   alt="Yuliang Zhou profile photo"
@@ -59,7 +135,7 @@ export function HomePage({
                   priority
                 />
               </div>
-              <div className="space-y-4 text-center md:text-left">
+              <div className="space-y-4 text-center md:flex md:min-h-[280px] md:flex-col md:justify-center md:text-left">
                 <h1 className="whitespace-nowrap text-[1.55rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[1.95rem] lg:text-[2.15rem]">
                   Yuliang Zhou, Ph.D.
                 </h1>
@@ -69,35 +145,21 @@ export function HomePage({
                   <br />
                   Morgan State University
                 </p>
-                <p className="text-[1.05rem] leading-8 text-slate-700">
-                  <a
-                    href="mailto:yuliang.zhou@morgan.edu"
-                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                  >
-                    Email
-                  </a>
-                  {" · "}
-                  <a
-                    href="https://scholar.google.com/citations?user=pg8L1nkAAAAJ&hl=en&oi=ao"
-                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                  >
-                    Google Scholar
-                  </a>
-                  {" · "}
-                  <a
-                    href="https://www.linkedin.com/in/yuliang-zhou-527508289/"
-                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                  >
-                    LinkedIn
-                  </a>
-                  {" · "}
-                  <a
-                    href="https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou"
-                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                  >
-                    Morgan Profile
-                  </a>
-                </p>
+                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[1.02rem] text-slate-700 md:justify-start">
+                  {profileLinks.map((item) => {
+                    const ItemIcon = item.icon;
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                      >
+                        <ItemIcon className="h-[18px] w-[18px]" />
+                        <span>{item.label}</span>
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
@@ -119,19 +181,22 @@ export function HomePage({
                 </h2>
                 <ul className="space-y-2.5 text-base leading-8 text-slate-700">
                   <li className="space-y-0">
-                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
+                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
                       Ph.D. in Civil Engineering
                     </p>
                     <p>The Pennsylvania State University, 2025</p>
                   </li>
                   <li className="space-y-0">
-                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
+                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
                       Ph.D. in Transportation Engineering
                     </p>
                     <p>Tongji University, 2021</p>
                   </li>
                   <li className="space-y-0">
-                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                    <p className="inline-flex items-center gap-2 font-medium text-slate-900 md:whitespace-nowrap">
+                      <DegreeIcon className="h-[18px] w-[18px] text-[#1f3a5f]" />
                       B.S. in Traffic Engineering
                     </p>
                     <p>Tongji University, 2016</p>
