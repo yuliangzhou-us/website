@@ -74,13 +74,28 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#edf2f8]/95 backdrop-blur">
         <div className="fluid-gutter mx-auto w-full max-w-7xl py-3 sm:py-4">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
             <Link
               href="/"
               className="whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
             >
               {siteTitle}
             </Link>
+            <nav aria-label="Main navigation" className="hidden sm:block">
+              <ul className="sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block rounded-md px-3 py-2 text-center text-base font-medium text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f]"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <button
               type="button"
               onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -95,11 +110,11 @@ export function SiteHeader() {
           <nav
             id="mobile-navigation"
             aria-label="Main navigation"
-            className={`overflow-hidden transition-[max-height,opacity] duration-200 sm:mt-0 sm:overflow-visible ${
-              isMenuOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0 sm:opacity-100"
-            } sm:max-h-none`}
+            className={`overflow-hidden transition-[max-height,opacity] duration-200 sm:hidden ${
+              isMenuOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0"
+            }`}
           >
-            <ul className="grid grid-cols-2 gap-1 sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
+            <ul className="grid grid-cols-2 gap-1">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
