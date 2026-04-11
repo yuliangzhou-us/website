@@ -89,6 +89,13 @@ export function HomePage({
                 >
                   LinkedIn
                 </a>
+                {" · "}
+                <a
+                  href="https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou"
+                  className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                >
+                  Morgan Profile
+                </a>
               </p>
             </div>
 
