@@ -48,8 +48,10 @@ export default function StudentsPage() {
         </div>
 
         <header className="mt-5 space-y-2 text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-[2.25rem]">
-            Graduate recruitment
+          <h1 className="text-[2rem] font-semibold tracking-tight text-slate-900 sm:text-[2.05rem]">
+            Prospective Ph.D. Students
+            <br />
+            in Railroad Transportation Engineering
           </h1>
         </header>
 
@@ -57,20 +59,18 @@ export default function StudentsPage() {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">Position Description</h3>
             <p>
-              The research group at Morgan State University is recruiting Funded Ph.D. students in
-              Railroad Transportation Engineering. The research focuses on digital twin, infrastructure sensing,
-              computer vision, and data-driven modeling for railroad and rail transit infrastructure. The
-              overall goal is to develop analytical, computational, and field-informed approaches for
-              infrastructure inspection, condition assessment, predictive maintenance, and performance
-              evaluation.
+              The Department of Transportation and Urban Infrastructure Studies at Morgan State University
+              is recruiting funded Ph.D. students in Railroad Transportation Engineering. Research areas
+              include digital twin, infrastructure sensing, computer vision, and data-driven modeling for
+              railroad and rail transit systems. Students will work on applications in inspection,
+              condition assessment, performance evaluation, and predictive maintenance.
             </p>
             <p>
-              The work is centered on railroad transportation infrastructure, with particular interest in
-              track systems, bridges, and selected rail transit applications. The research emphasizes the
-              integration of sensing data, engineering knowledge, and computational methods to support
-              safer, more reliable, and more efficient infrastructure management. Depending on the
-              student&apos;s background and the specific Ph.D. topic, the research may involve methodological
-              development, computational modeling, and application-oriented studies.
+              The research focuses on railroad infrastructure, with particular emphasis on track, bridges,
+              and rail transit applications. Projects integrate sensing data, engineering knowledge, and
+              computational methods to support safer, more reliable, and more efficient infrastructure
+              management. Depending on students&apos; backgrounds and dissertation topics, work may include
+              methodological development, computational modeling, and application-oriented studies.
             </p>
           </section>
 
