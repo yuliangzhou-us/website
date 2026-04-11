@@ -61,15 +61,15 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#edf2f8]/95 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
           <Link
             href="/"
             className="text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
           >
             {siteTitle}
           </Link>
-          <nav aria-label="Main navigation">
-            <ul className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
+          <nav aria-label="Main navigation" className="w-full overflow-x-auto sm:w-auto">
+            <ul className="flex min-w-max flex-nowrap items-center gap-1 sm:gap-2">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link

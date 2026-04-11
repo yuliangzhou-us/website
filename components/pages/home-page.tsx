@@ -59,7 +59,7 @@ export function HomePage({
                 className="aspect-square h-auto w-full rounded-full object-cover object-center"
                 priority
               />
-              <h1 className="whitespace-nowrap text-[1.9rem] font-semibold tracking-tight text-slate-900 sm:text-[2.2rem] lg:text-[2.35rem]">
+              <h1 className="text-[1.75rem] font-semibold tracking-tight text-slate-900 sm:text-[2.1rem] lg:text-[2.35rem]">
                 Yuliang Zhou, Ph.D.
               </h1>
               <p className="text-lg font-medium text-[#1f3a5f]">Assistant Professor</p>
@@ -129,19 +129,19 @@ export function HomePage({
                   </h3>
                   <ul className="space-y-2.5 text-base leading-8 text-slate-700">
                     <li className="space-y-0">
-                      <p className="whitespace-nowrap font-medium text-slate-900">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
                         Ph.D. in Civil Engineering
                       </p>
                       <p>The Pennsylvania State University, 2025</p>
                     </li>
                     <li className="space-y-0">
-                      <p className="whitespace-nowrap font-medium text-slate-900">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
                         Ph.D. in Transportation Engineering
                       </p>
                       <p>Tongji University, 2021</p>
                     </li>
                     <li className="space-y-0">
-                      <p className="whitespace-nowrap font-medium text-slate-900">
+                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
                         B.S. in Traffic Engineering
                       </p>
                       <p>Tongji University, 2016</p>
