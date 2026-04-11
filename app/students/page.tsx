@@ -78,7 +78,7 @@ export default function StudentsPage() {
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">Research Directions</h3>
             <p>Possible research directions include:</p>
             <ul className="list-disc space-y-2 pl-6">
-              <li>Digital twin for railroad and rail transit infrastructure systems</li>
+              <li>Digital twin for railroad and rail transit infrastructure</li>
               <li>Infrastructure monitoring, condition assessment, and predictive maintenance</li>
               <li>Sensing and data-driven modeling for infrastructure performance evaluation</li>
               <li>UAS-based inspection and computer vision for rail transit infrastructure</li>
