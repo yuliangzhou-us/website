@@ -173,19 +173,19 @@ export function HomePage({
                   </h3>
                   <ul className="space-y-2 text-[0.95rem] leading-7 text-slate-700">
                     <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      <p className="font-medium leading-6 text-slate-900">
                         Ph.D. in Civil Engineering
                       </p>
                       <p>The Pennsylvania State University, 2025</p>
                     </li>
                     <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      <p className="font-medium leading-6 text-slate-900">
                         Ph.D. in Transportation Engineering
                       </p>
                       <p>Tongji University, 2021</p>
                     </li>
                     <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      <p className="font-medium leading-6 text-slate-900">
                         B.S. in Traffic Engineering
                       </p>
                       <p>Tongji University, 2016</p>
