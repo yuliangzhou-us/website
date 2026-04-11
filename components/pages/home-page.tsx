@@ -10,7 +10,6 @@ import { ImageModal } from "@/components/ui/image-modal";
 import { withBasePath } from "@/lib/with-base-path";
 
 type HomePageProps = {
-  bioParagraphs: string[];
   researchInterests: string[];
   researchProjects: ResearchProject[];
   newsItems: NewsItem[];
@@ -19,7 +18,6 @@ type HomePageProps = {
 };
 
 export function HomePage({
-  bioParagraphs,
   researchInterests,
   researchProjects,
   newsItems,
@@ -49,105 +47,96 @@ export function HomePage({
         className="scroll-mt-24 bg-[#ffffff] py-20 md:py-28 lg:min-h-[86vh] lg:py-32"
       >
         <div className="fluid-gutter mx-auto w-full max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[390px_1fr] lg:items-start lg:gap-14">
-            <div className="w-full max-w-[240px] space-y-4 sm:max-w-[280px] lg:max-w-[390px]">
-              <Image
-                src={withBasePath("/profile.jpg")}
-                alt="Yuliang Zhou profile photo"
-                width={280}
-                height={280}
-                className="mx-auto aspect-square h-auto w-4/5 rounded-full object-cover object-center"
-                priority
-              />
-              <h1 className="whitespace-nowrap text-[1.75rem] font-semibold tracking-tight text-slate-900 sm:text-[2.1rem] lg:text-[2.35rem]">
-                Yuliang Zhou, Ph.D.
-              </h1>
-              <p className="text-lg font-medium text-[#1f3a5f]">Assistant Professor</p>
-              <p className="text-base text-slate-600">
-                Department of Transportation &amp; Urban Infrastructure Studies
-                <br />
-                Morgan State University
-              </p>
-              <p className="text-[15px] text-slate-700">
-                <a
-                  href="mailto:yuliang.zhou@morgan.edu"
-                  className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                >
-                  Email
-                </a>
-                {" · "}
-                <a
-                  href="https://scholar.google.com/citations?user=pg8L1nkAAAAJ&hl=en&oi=ao"
-                  className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                >
-                  Google Scholar
-                </a>
-                {" · "}
-                <a
-                  href="https://www.linkedin.com/in/yuliang-zhou-527508289/"
-                  className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                >
-                  LinkedIn
-                </a>
-                {" · "}
-                <a
-                  href="https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou"
-                  className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
-                >
-                  Morgan Profile
-                </a>
-              </p>
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 lg:gap-14">
+            <div className="grid items-center gap-8 md:grid-cols-[220px_1fr] md:gap-10 lg:gap-12">
+              <div className="mx-auto w-full max-w-[180px] md:max-w-[220px]">
+                <Image
+                  src={withBasePath("/profile.jpg")}
+                  alt="Yuliang Zhou profile photo"
+                  width={280}
+                  height={280}
+                  className="aspect-square h-auto w-full rounded-full object-cover object-center"
+                  priority
+                />
+              </div>
+              <div className="space-y-4 text-center md:text-left">
+                <h1 className="whitespace-nowrap text-[1.55rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[1.95rem] lg:text-[2.15rem]">
+                  Yuliang Zhou, Ph.D.
+                </h1>
+                <p className="text-[1.45rem] font-medium text-[#1f3a5f]">Assistant Professor</p>
+                <p className="text-[1.05rem] leading-8 text-slate-600">
+                  Department of Transportation &amp; Urban Infrastructure Studies
+                  <br />
+                  Morgan State University
+                </p>
+                <p className="text-[1.05rem] leading-8 text-slate-700">
+                  <a
+                    href="mailto:yuliang.zhou@morgan.edu"
+                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                  >
+                    Email
+                  </a>
+                  {" · "}
+                  <a
+                    href="https://scholar.google.com/citations?user=pg8L1nkAAAAJ&hl=en&oi=ao"
+                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                  >
+                    Google Scholar
+                  </a>
+                  {" · "}
+                  <a
+                    href="https://www.linkedin.com/in/yuliang-zhou-527508289/"
+                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                  >
+                    LinkedIn
+                  </a>
+                  {" · "}
+                  <a
+                    href="https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou"
+                    className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900"
+                  >
+                    Morgan Profile
+                  </a>
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-10 lg:pt-1">
-              <div className="max-w-6xl space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-[1.8rem]">
-                  Biography
+            <div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-12 lg:gap-14">
+              <div className="self-start space-y-4 md:pr-1">
+                <h2 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
+                  Research Interests
                 </h2>
-                {bioParagraphs.map((paragraph, index) => (
-                  <p key={index} className="text-base leading-8 text-slate-700">
-                    {paragraph}
-                  </p>
-                ))}
+                <ul className="space-y-2.5 text-base leading-8 text-slate-700">
+                  {researchInterests.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="grid gap-10 md:grid-cols-2 md:items-start md:gap-12 lg:gap-14">
-                <div className="self-start space-y-4 md:pr-1">
-                  <h3 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
-                    Research Interests
-                  </h3>
-                  <ul className="space-y-2.5 text-base leading-8 text-slate-700">
-                    {researchInterests.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="self-start space-y-4 md:pl-1">
-                  <h3 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
-                    Education
-                  </h3>
-                  <ul className="space-y-2.5 text-base leading-8 text-slate-700">
-                    <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
-                        Ph.D. in Civil Engineering
-                      </p>
-                      <p>The Pennsylvania State University, 2025</p>
-                    </li>
-                    <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
-                        Ph.D. in Transportation Engineering
-                      </p>
-                      <p>Tongji University, 2021</p>
-                    </li>
-                    <li className="space-y-0">
-                      <p className="font-medium text-slate-900 md:whitespace-nowrap">
-                        B.S. in Traffic Engineering
-                      </p>
-                      <p>Tongji University, 2016</p>
-                    </li>
-                  </ul>
-                </div>
+              <div className="self-start space-y-4 md:pl-1">
+                <h2 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
+                  Education
+                </h2>
+                <ul className="space-y-2.5 text-base leading-8 text-slate-700">
+                  <li className="space-y-0">
+                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      Ph.D. in Civil Engineering
+                    </p>
+                    <p>The Pennsylvania State University, 2025</p>
+                  </li>
+                  <li className="space-y-0">
+                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      Ph.D. in Transportation Engineering
+                    </p>
+                    <p>Tongji University, 2021</p>
+                  </li>
+                  <li className="space-y-0">
+                    <p className="font-medium text-slate-900 md:whitespace-nowrap">
+                      B.S. in Traffic Engineering
+                    </p>
+                    <p>Tongji University, 2016</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
