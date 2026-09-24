@@ -3,12 +3,51 @@ export type NavItem = {
   href: string;
 };
 
-export type SimpleCard = {
+export type ProfileLinkKind = "email" | "scholar" | "linkedin" | "web";
+
+export type ProfileLink = {
+  label: string;
+  href: string;
+  kind: ProfileLinkKind;
+};
+
+export type EducationEntry = {
+  degree: string;
+  school: string;
+  year: string;
+};
+
+export type Course = {
+  codes: string[];
   title: string;
-  description: string;
+  terms: string[];
 };
 
 export const siteTitle = "Yuliang Zhou";
+export const siteUrl = "https://yuliangzhou-us.github.io/website/";
+
+export const email = "yuliang.zhou@morgan.edu";
+export const phone = "443-885-5064";
+
+export const department = "Department of Transportation & Urban Infrastructure Studies";
+export const school = "School of Engineering";
+export const university = "Morgan State University";
+export const addressLines = ["1700 E. Cold Spring Lane", "Baltimore, MD 21251"];
+export const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=Morgan+State+University+1700+E+Cold+Spring+Ln+Baltimore+MD+21251";
+
+export const scholarUrl = "https://scholar.google.com/citations?user=pg8L1nkAAAAJ";
+
+export const profileLinks: ProfileLink[] = [
+  { label: "Email", href: `mailto:${email}`, kind: "email" },
+  { label: "Google Scholar", href: `${scholarUrl}&hl=en&oi=ao`, kind: "scholar" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/yuliang-zhou-527508289/", kind: "linkedin" },
+  {
+    label: "Morgan Profile",
+    href: "https://www.morgan.edu/transportation-and-urban-infrastructure-studies/faculty-and-staff/dr-yuliang-zhou",
+    kind: "web"
+  }
+];
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/#home" },
@@ -20,54 +59,33 @@ export const navItems: NavItem[] = [
   { label: "Contact", href: "/#contact" }
 ];
 
-export const researchThemes: SimpleCard[] = [
+export const education: EducationEntry[] = [
+  { degree: "Ph.D. in Civil Engineering", school: "The Pennsylvania State University", year: "2025" },
+  { degree: "Ph.D. in Transportation Engineering", school: "Tongji University", year: "2021" },
+  { degree: "B.S. in Traffic Engineering", school: "Tongji University", year: "2016" }
+];
+
+export const courses: Course[] = [
   {
-    title: "Theme 1",
-    description: "Placeholder summary for a core research direction."
+    codes: ["TRSS 302"],
+    title: "Introduction to Rail Transportation Systems",
+    terms: ["Spring 2026"]
   },
   {
-    title: "Theme 2",
-    description: "Placeholder summary for another area of focus."
+    codes: ["TRSS 426", "TRSP 626"],
+    title: "Rail Transportation Engineering",
+    terms: ["Fall 2025", "Fall 2026"]
   },
   {
-    title: "Theme 3",
-    description: "Placeholder summary for an emerging line of inquiry."
+    codes: ["TRSS 428", "TRSP 628"],
+    title: "Railroad Inspection and Maintenance Management",
+    terms: ["Fall 2026"]
   }
 ];
 
-export const featuredProjects: SimpleCard[] = [
-  {
-    title: "Project Placeholder A",
-    description: "Short placeholder for a future project overview."
-  },
-  {
-    title: "Project Placeholder B",
-    description: "Short placeholder for a future project overview."
-  },
-  {
-    title: "Project Placeholder C",
-    description: "Short placeholder for a future project overview."
-  }
-];
-
-export const selectedPublications: SimpleCard[] = [
-  {
-    title: "Publication Placeholder 1",
-    description: "Citation details will be added later."
-  },
-  {
-    title: "Publication Placeholder 2",
-    description: "Citation details will be added later."
-  }
-];
-
-export const teachingSnapshot: SimpleCard[] = [
-  {
-    title: "Course Placeholder",
-    description: "Course title, term, and role will be added later."
-  },
-  {
-    title: "Mentorship Placeholder",
-    description: "Student mentorship details will be added later."
-  }
+export const teachingPhotos = [
+  "/images/teaching/T1.jpg",
+  "/images/teaching/T2.jpg",
+  "/images/teaching/T3.jpg",
+  "/images/teaching/T4.jpg"
 ];

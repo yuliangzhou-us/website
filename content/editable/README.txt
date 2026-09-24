@@ -8,6 +8,14 @@ research-interests.txt
 
 news.txt
   News blocks separated by a line containing only ---. Each block: line 1 = date, line 2 = Y (with image) or N (text only), following lines = news text.
+  Dates written as YYYY-MM (e.g. 2026-04) display as "Apr 2026" and are grouped by year.
+  Each item gets a filter category from its wording (first match wins; rules in content/news.ts):
+    Publication  "Our paper", "accepted for publication", "published"
+    Grant        "funded", "grant", "launched a new"
+    Talk         "Presented", "Reported", "keynote", "invited talk"
+    Outreach     "Organized", "site visit", "seminar", "student chapter"
+    Milestone    "Joined", "Earned", "graduated", "appointed", "award"
+    Update       anything else
 
 news-image-paths.txt
   One image path per line (under public/), only for items marked Y in news.txt, in the same top-to-bottom order. See news-readme.txt.

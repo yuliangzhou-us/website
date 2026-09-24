@@ -2,160 +2,209 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light dark;
-}
+/*
+ * Color tokens (RGB triplets) consumed by tailwind.config.ts.
+ * Palette follows Morgan State navy + orange; --accent is decorative only,
+ * use --accent-ink for accent-colored text so it keeps readable contrast.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg: 255 255 255;
+    --bg-subtle: 246 248 251;
+    --surface: 255 255 255;
+    --surface-2: 240 244 249;
+    --line: 222 229 239;
+    --ink: 13 27 48;
+    --ink-2: 50 64 86;
+    --muted: 90 105 128;
+    --brand: 19 48 92;
+    --brand-2: 11 33 66;
+    --brand-soft: 229 236 247;
+    --on-brand: 255 255 255;
+    --accent: 232 119 34;
+    --accent-ink: 177 80 10;
+    --shadow: 15 30 60;
+  }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: 10 17 30;
+    --bg-subtle: 13 22 39;
+    --surface: 17 28 48;
+    --surface-2: 23 37 63;
+    --line: 36 52 82;
+    --ink: 232 238 248;
+    --ink-2: 192 204 223;
+    --muted: 140 156 182;
+    --brand: 143 184 255;
+    --brand-2: 184 210 255;
+    --brand-soft: 27 43 74;
+    --on-brand: 10 17 30;
+    --accent: 245 158 75;
+    --accent-ink: 250 180 112;
+    --shadow: 0 0 0;
+  }
 
-@media (min-width: 768px) {
+  /* Fallback when the theme script has not run (e.g. JavaScript disabled). */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      color-scheme: dark;
+      --bg: 10 17 30;
+      --bg-subtle: 13 22 39;
+      --surface: 17 28 48;
+      --surface-2: 23 37 63;
+      --line: 36 52 82;
+      --ink: 232 238 248;
+      --ink-2: 192 204 223;
+      --muted: 140 156 182;
+      --brand: 143 184 255;
+      --brand-2: 184 210 255;
+      --brand-soft: 27 43 74;
+      --on-brand: 10 17 30;
+      --accent: 245 158 75;
+      --accent-ink: 250 180 112;
+      --shadow: 0 0 0;
+    }
+  }
+
   html {
-    font-size: 18px;
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 17px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  body {
+    @apply bg-bg font-serif text-ink-2 antialiased;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.28);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand));
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-@media (min-width: 1280px) {
-  html {
-    font-size: 19px;
+@layer components {
+  /* Shared horizontal padding: fixed on mobile, fluid on desktop */
+  .fluid-gutter {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
+
+  @media (min-width: 640px) {
+    .fluid-gutter {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .fluid-gutter {
+      padding-left: clamp(2.5rem, 4.5vw, 5rem);
+      padding-right: clamp(2.5rem, 4.5vw, 5rem);
+    }
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 font-sans text-[0.78rem] font-medium text-ink-2;
+  }
+
+  .text-link {
+    @apply text-brand underline decoration-brand/30 underline-offset-4 transition-colors hover:decoration-brand;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-semibold text-on-brand shadow-card transition hover:bg-brand-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-surface px-4 py-2 font-sans text-sm font-medium text-ink transition hover:border-brand/40 hover:text-brand;
+  }
+
+  /* Engineering-drawing grid behind the hero, faded toward the edges. */
+  .blueprint {
+    background-image:
+      linear-gradient(rgb(var(--brand) / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--brand) / 0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 80% 70% at 30% 30%, black 30%, transparent 75%);
+  }
+
+  /* Brief highlight when an item is opened via a #hash link (see lib/use-hash-target.ts). */
+  .is-flashing {
+    animation: target-flash 2.2s ease-out;
+  }
+}
+
+@keyframes target-flash {
+  0%,
+  35% {
+    background-color: rgb(var(--accent) / 0.16);
+    box-shadow: 0 0 0 6px rgb(var(--accent) / 0.16);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+
+/* Scroll reveal: hiding is enabled by components/ui/reveal-observer.tsx via html.reveal-ready. */
+html.reveal-ready [data-reveal] {
+  transition:
+    opacity 600ms ease,
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html.reveal-ready [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(14px);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-}
 
-body {
-  @apply bg-[#ffffff] text-slate-800 antialiased;
-}
+  html.reveal-ready [data-reveal],
+  html.reveal-ready [data-reveal]:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-/* Shared horizontal padding: fixed on mobile, fluid on desktop */
-.fluid-gutter {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .fluid-gutter {
-    padding-left: 2.7rem;
-    padding-right: 2.7rem;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
   }
 }
 
-@media (min-width: 1024px) {
-  .fluid-gutter {
-    padding-left: clamp(2.7rem, 4.5vw, 5.4rem);
-    padding-right: clamp(2.7rem, 4.5vw, 5.4rem);
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
   }
-}
-
-/* Refined dark mode palette (calm contrast + academic tone) */
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme]) {
-    color-scheme: dark;
-    --dm-page-bg: #0f1724;
-    --dm-section-bg: #101c31;
-    --dm-surface-bg: #14233d;
-    --dm-border: #2a3a58;
-    --dm-text-primary: #e7edf7;
-    --dm-text-secondary: #b6c2d6;
-    --dm-text-muted: #8e9db6;
-    --dm-accent: #8fb8ff;
-    --dm-accent-soft: #bfd7ff;
-    --dm-link-hover: #a8ccff;
-  }
-}
-
-html[data-theme="dark"] {
-  color-scheme: dark;
-  --dm-page-bg: #0f1724;
-  --dm-section-bg: #101c31;
-  --dm-surface-bg: #14233d;
-  --dm-border: #2a3a58;
-  --dm-text-primary: #e7edf7;
-  --dm-text-secondary: #b6c2d6;
-  --dm-text-muted: #8e9db6;
-  --dm-accent: #8fb8ff;
-  --dm-accent-soft: #bfd7ff;
-  --dm-link-hover: #a8ccff;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) body {
-  background-color: var(--dm-page-bg) !important;
-  color: var(--dm-text-primary) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-white,
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#ffffff\] {
-  background-color: var(--dm-page-bg) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#f5f7fa\] {
-  background-color: var(--dm-section-bg) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#edf2f8\]\/95 {
-  background-color: rgb(16 28 49 / 0.93) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#1f3a5f\] {
-  background-color: rgb(76 119 181) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .bg-\[\#1f3a5f\]\/10 {
-  background-color: rgb(143 184 255 / 0.2) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-900 {
-  color: var(--dm-text-primary) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-800 {
-  color: rgb(217 227 241) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-700 {
-  color: var(--dm-text-secondary) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-600,
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-slate-500 {
-  color: var(--dm-text-muted) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-\[\#1f3a5f\] {
-  color: var(--dm-accent-soft) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .text-white {
-  color: var(--dm-text-primary) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .border-slate-200,
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .border-slate-300\/70 {
-  border-color: rgb(42 58 88 / 0.72) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"])
-  .divide-slate-200
-  > :not([hidden])
-  ~ :not([hidden]) {
-  border-color: var(--dm-border) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:bg-\[\#e4ebf5\]:hover {
-  background-color: rgb(31 44 68) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:bg-\[\#172e4d\]:hover {
-  background-color: rgb(65 101 154) !important;
-}
-
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:text-\[\#1f3a5f\]:hover,
-:is(html[data-theme="dark"], html[data-theme-resolved="dark"]) .hover\:text-slate-900:hover {
-  color: var(--dm-link-hover) !important;
 }
