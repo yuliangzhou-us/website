@@ -1,144 +1,215 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { navItems, siteTitle } from "@/lib/site-data";
+import { usePathname } from "next/navigation";
+import { navItems, siteTitle, university } from "@/lib/site-data";
+import type { SearchItem } from "@/lib/search-index";
+import { CommandPalette } from "@/components/layout/command-palette";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { CloseIcon, MenuIcon, SearchIcon } from "@/components/ui/icons";
 
-type ThemeMode = "light" | "dark" | "system";
+const sectionIds = navItems.map((item) => item.href.replace("/#", ""));
 
-const THEME_STORAGE_KEY = "theme-mode";
-
-function getSystemTheme(): "light" | "dark" {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+function isTypingTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) return false;
+  return target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
 }
 
-export function SiteHeader() {
-  const [themeMode, setThemeMode] = useState<ThemeMode>("system");
-  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
+/** Highlights the nav item for the section currently in the middle band of the viewport (home page only). */
+function useActiveSection(enabled: boolean) {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length > 0) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [enabled]);
+
+  return enabled ? active : null;
+}
+
+export function SiteHeader({ searchItems }: { searchItems: SearchItem[] }) {
+  const pathname = usePathname();
+  const activeSection = useActiveSection(pathname === "/");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const progressRef = useRef<HTMLDivElement>(null);
 
+  // Scroll progress bar + header shadow once the page has moved.
   useEffect(() => {
-    const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
-    const initial: ThemeMode =
-      saved === "light" || saved === "dark" || saved === "system" ? saved : "system";
-    setThemeMode(initial);
-  }, []);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      progressRef.current?.style.setProperty("transform", `scaleX(${progress})`);
+      setIsScrolled(window.scrollY > 8);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [pathname]);
 
+  // ⌘K / Ctrl+K toggles search; "/" opens it when not typing in a field.
   useEffect(() => {
-    const root = document.documentElement;
-
-    if (themeMode === "system") {
-      root.removeAttribute("data-theme");
-      const initial = getSystemTheme();
-      root.setAttribute("data-theme-resolved", initial);
-      setResolvedTheme(initial);
-
-      const media = window.matchMedia("(prefers-color-scheme: dark)");
-      const onChange = () => {
-        const next = media.matches ? "dark" : "light";
-        root.setAttribute("data-theme-resolved", next);
-        setResolvedTheme(next);
-      };
-
-      if (media.addEventListener) {
-        media.addEventListener("change", onChange);
-        return () => media.removeEventListener("change", onChange);
-      }
-      media.addListener(onChange);
-      return () => media.removeListener(onChange);
-    }
-
-    root.setAttribute("data-theme", themeMode);
-    root.setAttribute("data-theme-resolved", themeMode);
-    setResolvedTheme(themeMode);
-  }, [themeMode]);
-
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 640) {
-        setIsMenuOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setIsSearchOpen((open) => !open);
+      } else if (event.key === "/" && !isTypingTarget(event.target)) {
+        event.preventDefault();
+        setIsSearchOpen(true);
       }
     };
-
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  function toggleTheme() {
-    const next = resolvedTheme === "dark" ? "light" : "dark";
-    setThemeMode(next);
-    window.localStorage.setItem(THEME_STORAGE_KEY, next);
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (desktop.matches) setIsMenuOpen(false);
+    };
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
+
+  function isActive(href: string) {
+    return activeSection !== null && href === `/#${activeSection}`;
   }
 
   return (
     <>
-      <header className="sticky top-0 z-20 border-b border-slate-300/70 bg-[#edf2f8]/95 backdrop-blur">
-        <div className="fluid-gutter mx-auto w-full max-w-7xl py-3 sm:py-4">
-          <div className="flex items-center justify-between gap-3 sm:gap-4">
-            <Link
-              href="/"
-              className="whitespace-nowrap text-lg font-semibold tracking-tight text-[#1f3a5f] sm:text-xl"
+      <header
+        className={`sticky top-0 z-40 border-b bg-bg/80 font-sans backdrop-blur-xl backdrop-saturate-150 transition-[border-color,box-shadow] ${
+          isScrolled || isMenuOpen ? "border-line shadow-card" : "border-transparent"
+        }`}
+      >
+        <div className="fluid-gutter mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4">
+          <Link href="/" className="group flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
+            <span
+              aria-hidden="true"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand font-serif text-sm font-bold tracking-tight text-on-brand shadow-card transition group-hover:bg-brand-2"
             >
-              {siteTitle}
-            </Link>
-            <nav aria-label="Main navigation" className="hidden sm:block">
-              <ul className="sm:flex sm:min-w-max sm:flex-nowrap sm:items-center sm:gap-2">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block rounded-md px-3 py-2 text-center text-base font-medium text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f]"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300/70 text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:hidden"
-              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-navigation"
-            >
-              {isMenuOpen ? "✕" : "☰"}
-            </button>
-          </div>
-          <nav
-            id="mobile-navigation"
-            aria-label="Main navigation"
-            className={`overflow-hidden transition-[max-height,opacity] duration-200 sm:hidden ${
-              isMenuOpen ? "mt-3 max-h-64 opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <ul className="grid grid-cols-2 gap-1">
+              YZ
+            </span>
+            <span className="leading-tight">
+              <span className="block font-serif text-lg font-semibold tracking-tight text-ink">{siteTitle}</span>
+              <span className="hidden text-[0.7rem] font-medium uppercase tracking-[0.14em] text-muted sm:block">
+                {university}
+              </span>
+            </span>
+          </Link>
+
+          <nav aria-label="Main navigation" className="hidden lg:block">
+            <ul className="flex items-center gap-0.5">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    aria-current={isActive(item.href) ? "location" : undefined}
+                    className={`relative block rounded-full px-3 py-2 text-[0.84rem] font-medium transition-colors hover:text-brand ${
+                      isActive(item.href) ? "text-brand" : "text-ink-2"
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-accent transition-transform duration-300 ${
+                        isActive(item.href) ? "scale-x-100" : "scale-x-0"
+                      }`}
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Search the site"
+              className="flex h-9 items-center gap-2 rounded-full border border-line bg-surface px-2.5 text-sm text-muted transition hover:border-brand/40 hover:text-brand md:px-3"
+            >
+              <SearchIcon className="h-[18px] w-[18px]" />
+              <span className="hidden md:inline">Search</span>
+              <kbd className="hidden rounded-md border border-line bg-surface-2 px-1.5 text-[0.68rem] font-medium md:inline">
+                /
+              </kbd>
+            </button>
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface text-ink-2 transition hover:text-brand lg:hidden"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {isMenuOpen ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+
+        <nav
+          id="mobile-navigation"
+          aria-label="Main navigation"
+          className={`grid transition-[grid-template-rows,opacity] duration-300 lg:hidden ${
+            isMenuOpen ? "grid-rows-[1fr] opacity-100" : "pointer-events-none grid-rows-[0fr] opacity-0"
+          }`}
+        >
+          <div className="overflow-hidden">
+            <ul className="fluid-gutter mx-auto grid max-w-7xl grid-cols-2 gap-1.5 pb-4 pt-1 sm:grid-cols-4">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    tabIndex={isMenuOpen ? undefined : -1}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block rounded-md px-2 py-1.5 text-center text-[14px] font-medium text-slate-700 transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f] sm:px-3 sm:py-2 sm:text-base"
+                    className={`block rounded-xl border px-3 py-2.5 text-center text-sm font-medium transition-colors ${
+                      isActive(item.href)
+                        ? "border-brand/30 bg-brand-soft text-brand"
+                        : "border-line bg-surface text-ink-2 hover:text-brand"
+                    }`}
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
-        </div>
+          </div>
+        </nav>
+
+        <div
+          ref={progressRef}
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-[-1px] h-[2px] origin-left scale-x-0 bg-gradient-to-r from-brand via-brand to-accent"
+        />
       </header>
-      <button
-        type="button"
-        onClick={toggleTheme}
-        className="theme-toggle-btn fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/70 bg-white/95 text-lg text-slate-700 shadow-sm backdrop-blur transition hover:bg-[#e4ebf5] hover:text-[#1f3a5f]"
-        aria-label="Toggle light and dark mode"
-        title={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      >
-        {resolvedTheme === "dark" ? "☀️" : "🌙"}
-      </button>
+
+      <CommandPalette items={searchItems} open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 }
