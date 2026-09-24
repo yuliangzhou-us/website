@@ -1,4 +1,10 @@
-﻿Li, Q., Xie, X., Zeng, K., & Zhou, Y. (2025). Metro tunnel structural anomaly detection based on vehicle-track-tunnel coupling model using FNO and CAE networks. Transportation Geotechnics, 55, 101680.
+﻿Zhou, Y., Hansmann, F., Antony, B., Huang, H., Zeng, K., Zhang, C., & Yang, Q. (2026). Bridging micro-mechanical sensing and macro-maintenance: Investigating the impact of tamping parameters on the evolution of clean and fouled ballast. Transportation Geotechnics, 102123.
+
+Huang, H., & Zhou, Y. (2026). Rail safety improvement through enhanced understanding of ballast and subgrade interactions. Federal Railroad Administration.
+
+Zeng, K., Zhu, Y., Zhou, Y., Yang, Q., & Tang, G. (2026). A multisensor data fusion framework for real-time profile estimation of large-diameter shield tunnels. Structural Control and Health Monitoring, 2026(1), 4511210.
+
+Li, Q., Xie, X., Zeng, K., & Zhou, Y. (2025). Metro tunnel structural anomaly detection based on vehicle-track-tunnel coupling model using FNO and CAE networks. Transportation Geotechnics, 55, 101680.
 
 Zhou, Y., Schlake, B., Hansmann, F., Huang, H.*, Antony, B., Zeng, K., & Zhang, C. (2024). Particle motion and stress response interacted with machine activity: Railroad tamping strategy. Transportation Geotechnics, 45, 101188.
 
