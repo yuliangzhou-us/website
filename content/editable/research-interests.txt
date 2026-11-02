@@ -1,5 +1,5 @@
-Transportation and Civil Infrastructure Engineering
-Infrastructure monitoring and assessment
-Sensing and data-driven modeling
-Condition assessment and predictive maintenance
-Intelligent and resilient infrastructure
+Railway infrastructure engineering
+Structural health monitoring and condition assessment
+Infrastructure sensing and data analytics
+Computational modeling and model updating
+Digital twins and predictive maintenance

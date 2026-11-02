@@ -116,11 +116,11 @@ export function HeroSection({ bioParagraphs, researchInterests }: HeroSectionPro
                 <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Research Interests
                 </h3>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul className="mt-5 grid gap-2">
                   {researchInterests.map((interest) => (
                     <li
                       key={interest}
-                      className="inline-flex items-center gap-2 rounded-xl border border-brand/15 bg-brand-soft px-3 py-2 font-sans text-[0.82rem] font-medium leading-5 text-brand"
+                      className="flex items-center gap-2 rounded-xl border border-brand/15 bg-brand-soft px-3 py-2 font-sans text-[0.82rem] font-medium leading-5 text-brand"
                     >
                       <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       {interest}
