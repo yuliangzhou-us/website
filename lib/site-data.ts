@@ -29,7 +29,9 @@ export const siteUrl = "https://yuliangzhou-us.github.io/website/";
 export const email = "yuliang.zhou@morgan.edu";
 export const phone = "443-885-5064";
 
-export const department = "Department of Transportation & Urban Infrastructure Studies";
+export const recruitmentEmailSubject = "PhD Application – Rail Transportation Engineering";
+
+export const department = "Department of Civil, Environmental & Transportation Engineering";
 export const school = "School of Engineering";
 export const university = "Morgan State University";
 export const addressLines = ["1700 E. Cold Spring Lane", "Baltimore, MD 21251"];
@@ -87,5 +89,9 @@ export const teachingPhotos = [
   "/images/teaching/T1.jpg",
   "/images/teaching/T2.jpg",
   "/images/teaching/T3.jpg",
-  "/images/teaching/T4.jpg"
+  "/images/teaching/T4.jpg",
+  "/images/teaching/T5.jpg",
+  "/images/teaching/T6.jpg",
+  "/images/teaching/T7.jpg",
+  "/images/teaching/T8.jpg"
 ];

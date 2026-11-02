@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { email } from "@/lib/site-data";
+import { email, recruitmentEmailSubject } from "@/lib/site-data";
 import { ArrowRightIcon, EmailIcon } from "@/components/ui/icons";
 
 export function StudentsSection({ paragraphs }: { paragraphs: string[] }) {
@@ -44,7 +44,7 @@ export function StudentsSection({ paragraphs }: { paragraphs: string[] }) {
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
-                href={`mailto:${email}?subject=${encodeURIComponent("Prospective Ph.D. student inquiry")}`}
+                href={`mailto:${email}?subject=${encodeURIComponent(recruitmentEmailSubject)}`}
                 className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/35 transition hover:bg-white/10"
               >
                 <EmailIcon className="h-4 w-4" />

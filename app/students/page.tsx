@@ -1,20 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { email } from "@/lib/site-data";
+import { email, recruitmentEmailSubject } from "@/lib/site-data";
 import { withBasePath } from "@/lib/with-base-path";
 import { ArrowLeftIcon, CheckIcon, EmailIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Student recruitment | Yuliang Zhou",
-  description: "Graduate student opportunities, expectations, and how to apply.",
+  description: "Fully funded Ph.D. positions for Fall 2027 in Rail Transportation Engineering at Morgan State University.",
   alternates: {
     canonical: "/website/students/"
   },
   openGraph: {
     title: "Student Recruitment | Yuliang Zhou",
     description:
-      "Funded Ph.D. opportunities in Rail Transportation Engineering at Morgan State University.",
+      "Fully funded Ph.D. positions for Fall 2027 in Rail Transportation Engineering at Morgan State University.",
     url: "https://yuliangzhou-us.github.io/website/students/",
     siteName: "Yuliang Zhou",
     type: "website",
@@ -41,12 +41,12 @@ const sections = [
 ];
 
 const researchDirections = [
-  "Digital twin for railroad and rail transit infrastructure",
-  "Infrastructure monitoring, condition assessment, and predictive maintenance",
-  "Sensing and data-driven modeling for infrastructure performance evaluation",
-  "UAS-based inspection and computer vision for rail transit infrastructure",
-  "Distributed acoustic sensing and fiber-optic sensing for track condition assessment",
-  "Modeling, monitoring, and structural assessment for railroad bridges"
+  "Digital twin, condition assessment, and predictive maintenance for railroad infrastructure",
+  "Finite element modeling, long-term monitoring, and automated load rating of railroad bridges",
+  "Track support and subgrade condition assessment using distributed fiber-optic and distributed acoustic sensing",
+  "Physics-guided finite element inversion and model updating",
+  "Multi-source sensor data fusion and data-driven modeling",
+  "UAS-based intelligent infrastructure inspection"
 ];
 
 const preferredExperience = [
@@ -88,7 +88,7 @@ export default function StudentsPage() {
             />
           </div>
           <p className="mt-8 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink">
-            Funded Ph.D. positions
+            Fully funded Ph.D. positions · Fall 2027
           </p>
           <h1 className="mt-3 text-[2rem] font-semibold leading-tight tracking-tight text-ink sm:text-[2.4rem]">
             Prospective Ph.D. Students
@@ -99,7 +99,7 @@ export default function StudentsPage() {
             <a href="#apply" className="btn-primary">
               How to apply
             </a>
-            <a href={`mailto:${email}?subject=${encodeURIComponent("Prospective Ph.D. student inquiry")}`} className="btn-ghost">
+            <a href={`mailto:${email}?subject=${encodeURIComponent(recruitmentEmailSubject)}`} className="btn-ghost">
               <EmailIcon className="h-4 w-4" />
               {email}
             </a>
@@ -132,13 +132,22 @@ export default function StudentsPage() {
               Position Description
             </SectionTitle>
             <p>
-              The Department of Transportation and Urban Infrastructure Studies at Morgan State University
-              is recruiting funded Ph.D. students in Rail Transportation Engineering. The research
-              focuses on rail infrastructure, with particular emphasis on track, bridges,
-              and rail transit applications. Projects integrate sensing data, engineering knowledge, and
-              computational methods to support safer, more reliable, and more efficient infrastructure
-              management. Depending on students&apos; backgrounds and dissertation topics, work may include
-              methodological development, computational modeling, and application-oriented studies.
+              The Department of Civil, Environmental, and Transportation Engineering at Morgan State
+              University is recruiting fully funded Ph.D. students in Rail Transportation Engineering,
+              through the Ph.D. program in Transportation and Urban Infrastructure Systems, for admission
+              in Fall 2027. The research focuses on rail and rail transit infrastructure, with particular
+              emphasis on track and bridge structures. Projects integrate field data, sensing
+              technologies, engineering mechanics, and computational methods to support infrastructure
+              inspection, condition assessment, deterioration evaluation, maintenance decision-making, and
+              system performance.
+            </p>
+            <p>
+              Admitted students will work on research projects sponsored by the Federal Railroad
+              Administration (FRA), the U.S. Department of Transportation (USDOT), and the railroad
+              industry, contributing to project work, journal publications, and conference presentations.
+              Positions are fully funded and typically include tuition remission and a research
+              assistantship stipend. Specific funding arrangements depend on the university and the
+              project.
             </p>
           </section>
 
@@ -185,16 +194,16 @@ export default function StudentsPage() {
               How to Apply
             </SectionTitle>
             <p>
-              Interested students are encouraged to contact{" "}
-              <a href={`mailto:${email}`} className="text-link">
+              Interested students should email a personal statement, CV, and transcripts to{" "}
+              <a href={`mailto:${email}?subject=${encodeURIComponent(recruitmentEmailSubject)}`} className="text-link">
                 {email}
               </a>{" "}
-              with a brief introduction and supporting materials, such as a CV and transcripts. Students
-              may also apply directly through Morgan State University.
+              with the subject line &ldquo;{recruitmentEmailSubject}&rdquo;. Students may also apply directly
+              through Morgan State University.
             </p>
             <div className="flex flex-col gap-3 pt-2 font-sans sm:flex-row sm:flex-wrap">
               <a
-                href={`mailto:${email}?subject=${encodeURIComponent("Prospective Ph.D. student inquiry")}`}
+                href={`mailto:${email}?subject=${encodeURIComponent(recruitmentEmailSubject)}`}
                 className="btn-primary"
               >
                 <EmailIcon className="h-4 w-4" />

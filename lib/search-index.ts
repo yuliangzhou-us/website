@@ -32,7 +32,7 @@ export function buildSearchIndex(): SearchItem[] {
       title: "Prospective Ph.D. Students",
       subtitle: "Recruitment details & how to apply",
       href: "/students",
-      keywords: "recruiting apply phd position funded rail"
+      keywords: "recruiting apply phd position funded rail fall 2027"
     }
   ];
 

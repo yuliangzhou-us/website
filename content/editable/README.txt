@@ -27,7 +27,8 @@ students-home.txt
   Short text for the home-page Students section (paragraphs separated by blank lines).
 
 students-recruitment.txt
-  Full /students page. Separate blocks with one blank line. Plain blocks are paragraphs. For a titled section, start the block with a line like ## How to apply, then continue on the next lines with the body (no blank line between the ## line and the body).
+  Not used by the site at the moment: the /students page copy is written directly in app/students/page.tsx, so edit it there.
+  (Original note) Full /students page. Separate blocks with one blank line. Plain blocks are paragraphs. For a titled section, start the block with a line like ## How to apply, then continue on the next lines with the body (no blank line between the ## line and the body).
 
 Research projects live in: ../research-projects/ (numbered folders 01, 02, …)
 See ../research-projects/README.txt for file names in each project folder.
