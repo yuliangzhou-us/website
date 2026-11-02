@@ -18,6 +18,14 @@ Launched a new PI-led project, "FEM and Data Support for Railroad Bridge Monitor
 N
 Started as Co-PI on "A Crash Risk Assessment Model for Railroad Crossings in Baltimore," funded through a subaward from the University of Delaware (2026–2029).
 ---
+2026-08
+N
+Our paper on a multisensor data fusion framework for real-time profile estimation of large-diameter shield tunnels was published in Structural Control and Health Monitoring.
+---
+2026-05
+N
+Our paper on how tamping parameters affect the evolution of clean and fouled ballast, bridging micro-mechanical sensing and macro-maintenance, was published in Transportation Geotechnics.
+---
 2026-04
 Y
 Organized the AREMA Student Chapter Rail Seminar Series at Morgan State University, featuring guest speakers from the Federal Railroad Administration (FRA) and Plasser & Theurer.
@@ -29,6 +37,10 @@ Launched a new PI-led project, "UAS-Based Automated Inspection Framework for Tra
 2026-01
 N
 Presented research on continuous railroad track health monitoring using distributed fiber optic sensing at the 16th IACIP Annual Workshop.
+---
+2026
+N
+Our final report to the Federal Railroad Administration (FRA), "Rail Safety Improvement Through Enhanced Understanding of Ballast and Subgrade Interactions," was published.
 ---
 2025-11
 Y
